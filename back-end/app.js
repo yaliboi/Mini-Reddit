@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/posts', async (req, res) => {
-    let posts = await queryDb("SELECT * FROM full_post_info;");
+    let posts = await queryDb("SELECT * FROM full_post_info;"); TRASH ASWELL USE KNEX (NOT REQUIRED)
     console.log(posts)
     res.send(posts)
 })
@@ -32,17 +32,9 @@ app.post('/api/posts', async (req, res) => {
     res.send(newPost);
 })
 
-app.delete('/api/posts/:id', async (req, res) => {
-    let post = await queryDb("DELETE FROM posts where id=$1 returning id, authorid, title, body;", [req.params.id])
-    if (post == undefined || post.length == 0){
-        res.status(404).send('Post not found');
-    }else{    
-        res.send(post);
-    }
-})
 
 app.get('/api/users', async (req, res) => {
-    let posts = await queryDb("SELECT * FROM public.users;");
+    let posts = await queryDb("SELECT * FROM public.users;"); ALL OF THIS IS TRASH UE ABSTRACTION AND DEVISION TO COMPONENTS
     console.log(posts)
     res.send(posts)
 })

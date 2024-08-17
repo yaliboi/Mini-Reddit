@@ -3,7 +3,7 @@ const { Client } = require('pg');
 async function useDb(query, queryParameters=[]) {
   const client = new Client({
     connectionString: "postgresql://postgres:postgres@localhost:5432/minireddit?schema=public"
-  });
+  }); TRASH
 
   let results = [];
 
